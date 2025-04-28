@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Ella: OSINT Challenge</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<header>
+  <h1>OSINT CTF: Find Ella Reyes</h1>
+</header>
+
+<!-- POSTS AND TIMELINE -->
+<div class="container">
+    <div class="challenge-description">
+      <h2>Challenge Briefing</h2>
+      <p>Ella Reyes has disappeared. Analyze her digital traces carefully. Be warned: some accounts are fake.</p>
+      <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+      </div>
+    </div>
+
+<!-- TASK AREA -->
+<div id="task-area" class="container">
+  <!-- Current Task loads here dynamically -->
+</div>
+
+<div class="completion-message" id="completion">
+    <h2>Challenge Complete!</h2>
+    <p>Congratulations, investigator! You traced Ella successfully:</p>
+    <ul>
+      <li>Departed from Terminal 4</li>
+      <li>Met Jay at Maison Coffee</li>
+      <li>Created new alt: <strong>@wander.explores.18</strong></li>
+      <li>Heading toward Jaipur, India</li>
+    </ul>
+  </div>
+
+  <div class="timeline">
+    <h3>Timeline</h3>
+
+    <!-- Real post -->
+    <div class="post">
+      <div class="post-header">
+        <span class="post-author">@ella.r.explores</span>
+        <span class="post-date">March 4, 2025</span>
+      </div>
+      <div class="post-content">
+        <p>Happy to start my new journey! Leaving from Terminal 4 at 5:30 PM!</p>
+        <div class="photo-placeholder"> <img src="images/image1.jpg" alt="Airport Terminal 4"> </div>
+      </div>
+    </div>
+
+    <div class="timeline-connector"></div>
+
+    <!-- FAKE account -->
+    <div class="post">
+      <div class="post-header">
+        <span class="post-author">@exploring.ella</span>
+        <span class="post-date">March 8, 2025</span>
+      </div>
+      <div class="post-content">
+        <p>Can't wait to see Paris! ✈️🗼</p>
+        <div class="photo-placeholder"><img src="images/image2.jpg" alt="Eiffel Tower, Paris"></div>
+      </div>
+    </div>
+
+    <div class="timeline-connector"></div>
+
+    <!-- REAL Alt -->
+    <div class="post">
+      <div class="post-header">
+        <span class="post-author">@wander.explores.18</span>
+        <span class="post-date">March 20, 2025</span>
+      </div>
+      <div class="post-content">
+        <p>Vibrant markets, colorful spices, endless streets! 🌈✨</p>
+        <div class="photo-placeholder"><img src="images/image5.jpg" alt="Spice Market, Jaipur"></div>
+      </div>
+    </div>
+
+    <div class="timeline-connector"></div>
+
+    <!-- Jay's Post -->
+    <div class="post">
+      <div class="post-header">
+        <span class="post-author">@jay.blogger</span>
+        <span class="post-date">March 21, 2025</span>
+      </div>
+      <div class="post-content">
+        <p>Met up with Ella at <strong>Maison Coffee</strong> across Roseville Library. She seemed nervous about something.</p>
+      </div>
+    </div>
+
+    <div class="timeline-connector"></div>
+
+    <!-- FAKE account -->
+    <div class="post">
+      <div class="post-header">
+        <span class="post-author">@ellarealofficial</span>
+        <span class="post-date">March 22, 2025</span>
+      </div>
+      <div class="post-content">
+        <p>Finally here in South America!</p>
+        <div class="photo-placeholder"><img src="images/image3.jpg" alt="Rosario Cathedral"></div>
+      </div>
+    </div>
+
+    <div class="timeline-connector"></div>
+
+    <!-- REAL Alt -->
+    <div class="post">
+      <div class="post-header">
+        <span class="post-author">@wander.explores.18</span>
+        <span class="post-date">March 23, 2025</span>
+      </div>
+      <div class="post-content">
+        <p>The Pink Palace is even more stunning in real life 😍</p>
+        <div class="photo-placeholder"><img src="images/image4.jpg" alt="Hawa Mahal, "></div>
+      </div>
+    </div>
+
+    <div class="timeline-connector"></div>
+
+    <!-- Local News -->
+    <div class="post">
+      <div class="post-header">
+        <span class="post-author">Local News</span>
+        <span class="post-date">April 26, 2025</span>
+      </div>
+      <div class="post-content">
+        <p>Tourism in India surges. Jaipur, known as the 'Pink City', among top destinations.</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- HIDDEN TASKS -->
+<div style="display:none;">
+  <!-- Task 1 -->
+  <div class="task-section" id="task1">
+    <h3>Task 1: Where did Ella leave from on March 4?</h3>
+    <p>Check Ella's early post carefully.</p>
+    <div class="form-group">
+      <label for="answer1">Answer:</label>
+      <input type="text" id="answer1" placeholder="Enter location or terminal">
+    </div>
+    <button id="submit1">Submit</button>
+    <button class="hint-button" onclick="showHint('hint1')">Hint</button>
+    <div class="hint" id="hint1">She mentioned an airport terminal specifically.</div>
+    <div class="task-result" id="result1"></div>
+  </div>
+
+  <!-- Task 2 -->
+  <div class="task-section" id="task2">
+    <h3>Task 2: Where did Ella meet with Jay?</h3>
+    <p>Review Jay's blog post for the exact location.</p>
+    <div class="form-group">
+      <label for="answer2">Answer:</label>
+      <input type="text" id="answer2" placeholder="Enter location name">
+    </div>
+    <button id="submit2">Submit</button>
+    <button class="hint-button" onclick="showHint('hint2')">Hint</button>
+    <div class="hint" id="hint2">It's a coffee shop name near Roseville Library.</div>
+    <div class="task-result" id="result2"></div>
+  </div>
+
+  <!-- Task 3 -->
+  <div class="task-section" id="task3">
+    <h3>Task 3: Find Ella's new account username.</h3>
+    <p>Some profiles look suspicious. Which account is truly Ella's?</p>
+    <div class="form-group">
+      <label for="answer3">Answer:</label>
+      <input type="text" id="answer3" placeholder="Enter full username (e.g., @something)">
+    </div>
+    <button id="submit3">Submit</button>
+    <button class="hint-button" onclick="showHint('hint3')">Hint</button>
+    <div class="hint" id="hint3">Check for familiar bio styles and trip photos matching earlier clues.</div>
+    <div class="task-result" id="result3"></div>
+  </div>
+
+  <!-- Task 4 -->
+  <div class="task-section" id="task4">
+    <h3>Task 4: Where is Ella planning to travel next?</h3>
+    <p>Look carefully at Ella's real posts and the news. What's the destination?</p>
+    <div class="form-group">
+      <label for="answer4">Answer:</label>
+      <input type="text" id="answer4" placeholder="Enter city name">
+    </div>
+    <button id="submit4">Submit</button>
+    <button class="hint-button" onclick="showHint('hint4')">Hint</button>
+    <div class="hint" id="hint4">It's known as the 'Pink City'.</div>
+    <div class="task-result" id="result4"></div>
+  </div>
+</div>
+
+</body>
+</html>
