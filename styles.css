@@ -139,6 +139,10 @@
     border-radius: 5px;
     display: none;
   }
+
+  .container {
+    padding: 0%;
+  }
   
   .success {
     background-color: rgba(23, 191, 99, 0.1);
