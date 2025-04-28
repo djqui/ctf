@@ -10,194 +10,441 @@
 <body>
 
 <header>
-  <h1>OSINT CTF: Find Ella Reyes</h1>
+  <h1>OSINT CTF: Find Ella Reyes<h1>
 </header>
 
-<!-- POSTS AND TIMELINE -->
 <div class="container">
-    <div class="challenge-description">
-      <h2>Challenge Briefing</h2>
-      <p>Ella Reyes has disappeared. Analyze her digital traces carefully. Be warned: some accounts are fake.</p>
-      <div class="progress-bar">
-        <div class="progress" id="progress"></div>
-      </div>
+
+  <div class="challenge-description">
+    <h2>Challenge Briefing</h2>
+    <p>Ella Reyes has disappeared. Reconstruct her digital trail. Posts are in real order, but information is fragmented.</p>
+    <div class="progress-bar">
+      <div class="progress" id="progress"></div>
     </div>
+  </div>
 
-<!-- TASK AREA -->
-<div id="task-area" class="container">
-  <!-- Current Task loads here dynamically -->
-</div>
+  <div id="task-area" class="container"></div>
 
-<div class="completion-message" id="completion">
+  <div class="completion-message" id="completion">
     <h2>Challenge Complete!</h2>
-    <p>Congratulations, investigator! You traced Ella successfully:</p>
+    <p>Congratulations, investigator! You pieced the story:</p>
     <ul>
       <li>Departed from Terminal 4</li>
       <li>Met Jay at Maison Coffee</li>
-      <li>Created new alt: <strong>@wander.explores.18</strong></li>
-      <li>Heading toward Jaipur, India</li>
+      <li>New account: <strong>@wander.explores.18</strong></li>
+      <li>Destination: Jaipur, India</li>
+      <li>Traveling with: Jay</li>
     </ul>
   </div>
 
   <div class="timeline">
     <h3>Timeline</h3>
-
-    <!-- Real post -->
+  
+    <!-- March 7, 2025 -->
+  
     <div class="post">
       <div class="post-header">
-        <span class="post-author">@ella.r.explores</span>
-        <span class="post-date">March 4, 2025</span>
+        <div class="post-user">
+          <img src="images/news_icon.jpg" class="profile-icon" alt="News Icon"
+            data-displayname="Global News" data-username="Local News" data-bio="Updates on travel, events, and the world.">
+          <div class="user-info">
+            <span class="display-name">Global News</span>
+            <span class="post-author">Local News</span>
+          </div>
+        </div>
+        <span class="post-date">March 7, 2025</span>
       </div>
       <div class="post-content">
-        <p>Happy to start my new journey! Leaving from Terminal 4 at 5:30 PM!</p>
-        <div class="photo-placeholder"> <img src="images/image1.jpg" alt="Airport Terminal 4"> </div>
+        <p>Zanzibar's old town streets buzz with music festivals this week 🎶🕌 Perfect time for culture lovers. #ZanzibarVibes</p>
       </div>
     </div>
-
-    <div class="timeline-connector"></div>
-
-    <!-- FAKE account -->
+  
     <div class="post">
       <div class="post-header">
-        <span class="post-author">@exploring.ella</span>
-        <span class="post-date">March 8, 2025</span>
+        <div class="post-user">
+          <img src="images/wander_icon.jpg" class="profile-icon" alt="Sin Deer Icon"
+            data-displayname="Sin Deer" data-username="@wander.explores.18" data-bio="New adventures, fresh beginnings 🌸">
+          <div class="user-info">
+            <span class="display-name">Sin Deer</span>
+            <span class="post-author">@wander.explores.18</span>
+          </div>
+        </div>
+        <span class="post-date">March 7, 2025</span>
       </div>
       <div class="post-content">
-        <p>Can't wait to see Paris! ✈️🗼</p>
-        <div class="photo-placeholder"><img src="images/image2.jpg" alt="Eiffel Tower, Paris"></div>
+        <p>So many places feel like fairytales lately... palaces, towers, hidden courtyards ✨🏰</p>
+        <div class="photo-placeholder"><img src="images/pink_palace.jpg" alt="Pink Palace"></div>
+        <div class="post-comments">
+          <div class="comment"><strong>@lostwanderer:</strong> Is this in Muscat? Muscat has beautiful forts too! 🏰</div>
+          <div class="comment"><strong>@travelqueen:</strong> @lostwanderer I'm afraid Sin can't reply because the last time I messaged her, she said her mobile data was slow! I need to know where this is too. I'll have to use <strong>reverse image search</strong> to know.</div>
+        </div>
       </div>
     </div>
-
-    <div class="timeline-connector"></div>
-
-    <!-- REAL Alt -->
+  
     <div class="post">
       <div class="post-header">
-        <span class="post-author">@wander.explores.18</span>
-        <span class="post-date">March 20, 2025</span>
+        <div class="post-user">
+          <img src="images/jay_icon.jpg" class="profile-icon" alt="Jay's Icon"
+            data-displayname="Jay Morgan" data-username="@jay.blogger" data-bio="Lifestyle Blogger ☕ Traveler 📸">
+          <div class="user-info">
+            <span class="display-name">Jay Morgan</span>
+            <span class="post-author">@jay.blogger</span>
+          </div>
+        </div>
+        <span class="post-date">March 7, 2025</span>
       </div>
       <div class="post-content">
-        <p>Vibrant markets, colorful spices, endless streets! 🌈✨</p>
-        <div class="photo-placeholder"><img src="images/image5.jpg" alt="Spice Market, Jaipur"></div>
+        <p>The coffee meet was totally a good idea. We really planned our itinerary really well!</p>
+        <div class="post-comments">
+          <div class="comment"><strong>@amanda.travels:</strong> OMG, where are you now?</div>
+          <div class="comment"><strong>@ryllaiyu:</strong> I can't wait to see the photos from the trip! 📸</div>
+        </div>
       </div>
     </div>
-
-    <div class="timeline-connector"></div>
-
-    <!-- Jay's Post -->
+  
     <div class="post">
       <div class="post-header">
-        <span class="post-author">@jay.blogger</span>
-        <span class="post-date">March 21, 2025</span>
+        <div class="post-user">
+          <img src="images/ryan_icon.jpg" class="profile-icon" alt="Ryan's Icon"
+            data-displayname="Ryan Adams" data-username="@ryan.ontheroad" data-bio="Adventure junkie ✈️ Story hunter 🏕️">
+          <div class="user-info">
+            <span class="display-name">Ryan Adams</span>
+            <span class="post-author">@ryan.ontheroad</span>
+          </div>
+        </div>
+        <span class="post-date">March 7, 2025</span>
       </div>
       <div class="post-content">
-        <p>Met up with Ella at <strong>Maison Coffee</strong> across Roseville Library. She seemed nervous about something.</p>
+        <p>Landing in Mumbai! Can't wait to explore the city chaos 🛺🌆</p>
       </div>
     </div>
-
-    <div class="timeline-connector"></div>
-
-    <!-- FAKE account -->
+  
+    <!-- March 6, 2025 -->
     <div class="post">
       <div class="post-header">
-        <span class="post-author">@ellarealofficial</span>
-        <span class="post-date">March 22, 2025</span>
+        <div class="post-user">
+          <img src="images/wander_icon.jpg" class="profile-icon" alt="Sin Deer Icon"
+            data-displayname="Sin Deer" data-username="@wander.explores.18" data-bio="New adventures, fresh beginnings 🌸">
+          <div class="user-info">
+            <span class="display-name">Sin Deer</span>
+            <span class="post-author">@wander.explores.18</span>
+          </div>
+        </div>
+        <span class="post-date">March 6, 2025</span>
       </div>
       <div class="post-content">
-        <p>Finally here in South America!</p>
-        <div class="photo-placeholder"><img src="images/image3.jpg" alt="Rosario Cathedral"></div>
+        <p>Beaches calling 🌊☀️ One day soon... maybe sooner than I think?</p>
+        <div class="post-comments">
+          <div class="comment"><strong>@travelqueen:</strong> If you're in Goa, you HAVE to try the coconut curry! 🌴🍛</div>
+          <div class="comment"><strong>@wander.explores.18:</strong> Can't wait to explore the beaches! 🌊</div>
+        </div>
       </div>
     </div>
-
-    <div class="timeline-connector"></div>
-
-    <!-- REAL Alt -->
+  
     <div class="post">
       <div class="post-header">
-        <span class="post-author">@wander.explores.18</span>
-        <span class="post-date">March 23, 2025</span>
+        <div class="post-user">
+          <img src="images/news_icon.jpg" class="profile-icon" alt="News Icon"
+            data-displayname="Global News" data-username="Local News" data-bio="Updates on travel, events, and the world.">
+          <div class="user-info">
+            <span class="display-name">Global News</span>
+            <span class="post-author">Local News</span>
+          </div>
+        </div>
+        <span class="post-date">March 6, 2025</span>
       </div>
       <div class="post-content">
-        <p>The Pink Palace is even more stunning in real life 😍</p>
-        <div class="photo-placeholder"><img src="images/image4.jpg" alt="Hawa Mahal, "></div>
+        <p>Jaipur, the 'Pink City', welcomes a surge of travelers this spring!</p>
       </div>
     </div>
-
-    <div class="timeline-connector"></div>
-
-    <!-- Local News -->
+  
     <div class="post">
-      <div class="post-header">
-        <span class="post-author">Local News</span>
-        <span class="post-date">April 26, 2025</span>
+        <div class="post-header">
+          <div class="post-user">
+            <img src="images/news_icon.jpg" class="profile-icon" alt="News Icon"
+              data-displayname="Global News" data-username="Local News" data-bio="Updates on travel, events, and the world.">
+            <div class="user-info">
+              <span class="display-name">Global News</span>
+              <span class="post-author">Local News</span>
+            </div>
+          </div>
+          <span class="post-date">March 5, 2025</span>
+        </div>
+        <div class="post-content">
+          <p>Muscat welcomes spring travelers with cultural festivals and seaside escapes. 🌊🏰 #TravelUpdate</p>
+        </div>
+        <div class="post-comments">
+            <div class="comment"><strong>@ryllaiyu:</strong> OMG @ella.r.explores let's go here?</div>
+        </div>
       </div>
-      <div class="post-content">
-        <p>Tourism in India surges. Jaipur, known as the 'Pink City', among top destinations.</p>
+
+  <div class="post">
+    <div class="post-header">
+      <div class="post-user">
+        <img src="images/ella_icon.jpg" class="profile-icon" alt="Ella's Icon"
+          data-displayname="Ella Reyes" data-username="@ella.r.explores" data-bio="Explorer 🌍 Coffee Enthusiast ✈️">
+        <div class="user-info">
+          <span class="display-name">Ella Reyes</span>
+          <span class="post-author">@ella.r.explores</span>
+        </div>
+      </div>
+      <span class="post-date">March 5, 2025</span>
+    </div>
+    <div class="post-content">
+      <p>Boarding soon! Can't wait for new adventures 🌍</p>
+      <div class="photo-placeholder"><img src="images/terminal_gate.jpg" alt="Terminal 4 boarding gate"></div>
+      <div class="post-comments">
+        <div class="comment"><strong>@jay.blogger:</strong> See you at the airport!</div>
+        <div class="comment"><strong>@amanda.travels:</strong> Jealous!! Travel safe.</div>
+        <div class="comment"><strong>@ryllaiyu:</strong> Let's grab some coffee before boarding!</div>
       </div>
     </div>
+  </div>
 
+  <div class="post">
+    <div class="post-header">
+      <div class="post-user">
+        <img src="images/ryllaiyu_icon.jpg" class="profile-icon" alt="Ryllaiyu's Icon"
+          data-displayname="Ryujin Shin" data-username="@ryllaiyu" data-bio="✈️ Flight Attendant | Exploring new skies">
+        <div class="user-info">
+          <span class="display-name">Ryujin Shin</span>
+          <span class="post-author">@ryllaiyu</span>
+        </div>
+      </div>
+      <span class="post-date">March 5, 2025</span>
+    </div>
+    <div class="post-content">
+      <p>All packed and ready ✈️ Super excited for today's flight to Muscat! 🕌</p>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="post-header">
+      <div class="post-user">
+        <img src="images/amanda_icon.jpg" class="profile-icon" alt="Amanda's Icon"
+          data-displayname="Amanda Travels" data-username="@amanda.travels" data-bio="Foodie | Travel Addict 🌎">
+        <div class="user-info">
+          <span class="display-name">Amanda Travels</span>
+          <span class="post-author">@amanda.travels</span>
+        </div>
+      </div>
+      <span class="post-date">March 5, 2025</span>
+    </div>
+    <div class="post-content">
+      <p>Missing you already Ella! 💔</p>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="post-header">
+      <div class="post-user">
+        <img src="images/news_icon.jpg" class="profile-icon" alt="News Icon"
+          data-displayname="Global News" data-username="Local News" data-bio="Updates on travel, events, and the world.">
+        <div class="user-info">
+          <span class="display-name">Global News</span>
+          <span class="post-author">Local News</span>
+        </div>
+      </div>
+      <span class="post-date">March 5, 2025</span>
+    </div>
+    <div class="post-content">
+      <p>Istanbul welcomes spring with tulip blooms across the city's parks 🌷🏛️ #IstanbulTulipFestival</p>
+    </div>
+  </div>
+
+  <!-- March 4, 2025 -->
+  <div class="post">
+    <div class="post-header">
+      <div class="post-user">
+        <img src="images/ella_icon.jpg" class="profile-icon" alt="Ella's Icon"
+          data-displayname="Ella Reyes" data-username="@ella.r.explores" data-bio="Explorer 🌍 Coffee Enthusiast ✈️">
+        <div class="user-info">
+          <span class="display-name">Ella Reyes</span>
+          <span class="post-author">@ella.r.explores</span>
+        </div>
+      </div>
+      <span class="post-date">March 4, 2025</span>
+    </div>
+    <div class="post-content">
+      <p>No flight delays tomorrow, please!</p>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="post-header">
+      <div class="post-user">
+        <img src="images/news_icon.jpg" class="profile-icon" alt="News Icon"
+          data-displayname="Global News" data-username="Local News" data-bio="Updates on travel, events, and the world.">
+        <div class="user-info">
+          <span class="display-name">Global News</span>
+          <span class="post-author">Local News</span>
+        </div>
+      </div>
+      <span class="post-date">March 4, 2025</span>
+    </div>
+    <div class="post-content">
+      <p>Flight delays reported at Terminal 4 tonight. Check with your airlines!</p>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="post-header">
+      <div class="post-user">
+        <img src="images/jay_icon.jpg" class="profile-icon" alt="Jay's Icon"
+          data-displayname="Jay Morgan" data-username="@jay.blogger" data-bio="Lifestyle Blogger ☕ Traveler 📸">
+        <div class="user-info">
+          <span class="display-name">Jay Morgan</span>
+          <span class="post-author">@jay.blogger</span>
+        </div>
+      </div>
+      <span class="post-date">March 4, 2025</span>
+    </div>
+    <div class="post-content">
+      <p>Coffee meet was awesome today across the big fountain! ☕🌿</p>
+      <div class="post-comments">
+        <div class="comment"><strong>@sam.globetrotter:</strong> Was it Maison or Keyton you guys picked? Both are right by the fountain lol.</div>
+        <div class="comment"><strong>@amanda.travels:</strong> Haha, Keyton usually closes early on weekdays, right?</div>
+        <div class="comment"><strong>@jay.blogger:</strong> Yep, needed somewhere still open at 4pm. Good call. 😅</div>
+        <div class="comment"><strong>@chloe.nomad:</strong> Love Keyton! Hope you got the blueberry muffins before they sold out 🍰</div>
+        <div class="comment"><strong>@ryllaiyu:</strong> I heard Keyton has the best muffins! 😍</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="post-header">
+      <div class="post-user">
+        <img src="images/ryan_icon.jpg" class="profile-icon" alt="Ryan's Icon"
+          data-displayname="Ryan Adams" data-username="@ryan.ontheroad" data-bio="Adventure junkie ✈️ Story hunter 🏕️">
+        <div class="user-info">
+          <span class="display-name">Ryan Adams</span>
+          <span class="post-author">@ryan.ontheroad</span>
+        </div>
+      </div>
+      <span class="post-date">March 4, 2025</span>
+    </div>
+    <div class="post-content">
+      <p>Airport vibes... Terminal 2 always packed.</p>
+    </div>
+  </div>
+
+  <!-- March 3, 2025 -->
+  <div class="post">
+    <div class="post-header">
+      <div class="post-user">
+        <img src="images/lisa_icon.jpg" class="profile-icon" alt="Lisa's Icon"
+          data-displayname="Lisa Backpacker" data-username="@lisa.backpacker" data-bio="Nature lover 🌲 Backpack across worlds.">
+        <div class="user-info">
+          <span class="display-name">Lisa Backpacker</span>
+          <span class="post-author">@lisa.backpacker</span>
+        </div>
+      </div>
+      <span class="post-date">March 3, 2025</span>
+    </div>
+    <div class="post-content">
+      <p>Planning an exciting trip next week! Stay tuned 🌏</p>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="post-header">
+      <div class="post-user">
+        <img src="images/amanda_icon.jpg" class="profile-icon" alt="Amanda's Icon"
+          data-displayname="Amanda Travels" data-username="@amanda.travels" data-bio="Foodie | Travel Addict 🌎">
+        <div class="user-info">
+          <span class="display-name">Amanda Travels</span>
+          <span class="post-author">@amanda.travels</span>
+        </div>
+      </div>
+      <span class="post-date">March 3, 2025</span>
+    </div>
+    <div class="post-content">
+      <p>Some fav coffee spots by the fountain if you're visiting soon:</p>
+      <ul>
+        <li><strong>Maison Coffee</strong> ☕ - Opens 8:00 AM, closes 8:00 PM daily.</li>
+        <li><strong>Keyton Café</strong> 🍰 - Opens 7:30 AM, closes 3:30 PM weekdays, open till 6:00 PM on weekends.</li>
+      </ul>
+      <p>Both are super cozy but Maison usually has better late afternoon vibes 😍</p>
+    </div>
   </div>
 
 </div>
 
-<!-- HIDDEN TASKS -->
+  
+  
+<!-- Hidden Tasks -->
 <div style="display:none;">
-  <!-- Task 1 -->
-  <div class="task-section" id="task1">
-    <h3>Task 1: Where did Ella leave from on March 4?</h3>
-    <p>Check Ella's early post carefully.</p>
-    <div class="form-group">
-      <label for="answer1">Answer:</label>
-      <input type="text" id="answer1" placeholder="Enter location or terminal">
-    </div>
-    <button id="submit1">Submit</button>
-    <button class="hint-button" onclick="showHint('hint1')">Hint</button>
-    <div class="hint" id="hint1">She mentioned an airport terminal specifically.</div>
-    <div class="task-result" id="result1"></div>
-  </div>
 
-  <!-- Task 2 -->
-  <div class="task-section" id="task2">
-    <h3>Task 2: Where did Ella meet with Jay?</h3>
-    <p>Review Jay's blog post for the exact location.</p>
-    <div class="form-group">
-      <label for="answer2">Answer:</label>
-      <input type="text" id="answer2" placeholder="Enter location name">
+    <div class="task-section" id="task1">
+      <h3>Task 1: Where did Ella leave from?</h3>
+      <p>Reconstruct her departure information carefully.</p>
+      <div class="form-group">
+        <label for="answer1">Answer:</label>
+        <input type="text" id="answer1" placeholder="Enter terminal">
+      </div>
+      <button id="submit1">Submit</button>
+      <button class="hint-button">Hint</button>
+      <div class="hint">She mentioned a specific terminal and time.</div>
+      <div class="task-result" id="result1"></div>
     </div>
-    <button id="submit2">Submit</button>
-    <button class="hint-button" onclick="showHint('hint2')">Hint</button>
-    <div class="hint" id="hint2">It's a coffee shop name near Roseville Library.</div>
-    <div class="task-result" id="result2"></div>
-  </div>
-
-  <!-- Task 3 -->
-  <div class="task-section" id="task3">
-    <h3>Task 3: Find Ella's new account username.</h3>
-    <p>Some profiles look suspicious. Which account is truly Ella's?</p>
-    <div class="form-group">
-      <label for="answer3">Answer:</label>
-      <input type="text" id="answer3" placeholder="Enter full username (e.g., @something)">
+  
+    <div class="task-section" id="task2">
+      <h3>Task 2: Who did Ella last meet, and where?</h3>
+      <p>Provide the name and meeting place.</p>
+      <div class="form-group">
+        <label for="answer2">Answer:</label>
+        <input type="text" id="answer2" placeholder="Format: [Name] at [Location]">
+      </div>
+      <button id="submit2">Submit</button>
+      <button class="hint-button">Hint</button>
+      <div class="hint">Look for posts about meeting, near a fountain.</div>
+      <div class="task-result" id="result2"></div>
     </div>
-    <button id="submit3">Submit</button>
-    <button class="hint-button" onclick="showHint('hint3')">Hint</button>
-    <div class="hint" id="hint3">Check for familiar bio styles and trip photos matching earlier clues.</div>
-    <div class="task-result" id="result3"></div>
-  </div>
-
-  <!-- Task 4 -->
-  <div class="task-section" id="task4">
-    <h3>Task 4: Where is Ella planning to travel next?</h3>
-    <p>Look carefully at Ella's real posts and the news. What's the destination?</p>
-    <div class="form-group">
-      <label for="answer4">Answer:</label>
-      <input type="text" id="answer4" placeholder="Enter city name">
+  
+    <div class="task-section" id="task3">
+      <h3>Task 3: What is Ella's new account?</h3>
+      <p>Look for clues about her new identity.</p>
+      <div class="form-group">
+        <label for="answer3">Answer:</label>
+        <input type="text" id="answer3" placeholder="Enter full username">
+      </div>
+      <button id="submit3">Submit</button>
+      <button class="hint-button">Hint</button>
+      <div class="hint">Fresh colors and markets are key clues.</div>
+      <div class="task-result" id="result3"></div>
     </div>
-    <button id="submit4">Submit</button>
-    <button class="hint-button" onclick="showHint('hint4')">Hint</button>
-    <div class="hint" id="hint4">It's known as the 'Pink City'.</div>
-    <div class="task-result" id="result4"></div>
+  
+    <div class="task-section" id="task4">
+      <h3>Task 4: Where is Ella heading?</h3>
+      <p>Determine Ella’s travel destination.</p>
+      <div class="form-group">
+        <label for="answer4">Answer:</label>
+        <input type="text" id="answer4" placeholder="Enter city name">
+      </div>
+      <button id="submit4">Submit</button>
+      <button class="hint-button">Hint</button>
+      <div class="hint">Think about the Pink City nickname.</div>
+      <div class="task-result" id="result4"></div>
+    </div>
+  
+    <div class="task-section" id="task5">
+      <h3>Task 5: Who is traveling with Ella?</h3>
+      <p>Only one person is actually flying with Ella. Find out who.</p>
+      <div class="form-group">
+        <label for="answer5">Answer:</label>
+        <input type="text" id="answer5" placeholder="Enter @username">
+      </div>
+      <button id="submit5">Submit</button>
+      <button class="hint-button">Hint</button>
+      <div class="hint">Who posted about meeting at the airport?</div>
+      <div class="task-result" id="result5"></div>
+    </div>
+  
   </div>
-</div>
-
-</body>
-</html>
+  
+  <!-- Profile Popup -->
+  <div class="profile-popup" id="profilePopup"></div>
+  
+  </body>
+  </html>
+  

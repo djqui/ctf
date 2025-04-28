@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let correctAnswers = [];
   
     function updateProgress() {
-      const progress = (correctAnswers.length / 4) * 100;
+      const progress = (correctAnswers.length / 5) * 100;
       document.getElementById('progress').style.width = progress + '%';
     }
   
@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
         task.style.display = 'block';
         taskArea.appendChild(task);
   
-        // Attach hint button functionality dynamically
         const hintButton = task.querySelector('.hint-button');
         if (hintButton) {
           hintButton.addEventListener('click', () => {
@@ -28,82 +27,111 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   
-    // Task 1
-    document.getElementById('submit1').addEventListener('click', () => {
-      const answer = document.getElementById('answer1').value.trim().toLowerCase();
-      const resultDiv = document.getElementById('result1');
-      if (answer === 'terminal 4' || answer === 't4') {
-        resultDiv.textContent = 'Correct!';
-        resultDiv.className = 'task-result success';
-        resultDiv.style.display = 'block';
-        correctAnswers.push(1);
-        updateProgress();
-        setTimeout(() => loadTask(2), 1500);
-      } else {
-        resultDiv.textContent = 'Wrong. Think about airport terminals!';
-        resultDiv.className = 'task-result error';
-        resultDiv.style.display = 'block';
-      }
-    });
-  
-    // Task 2
-    document.getElementById('submit2').addEventListener('click', () => {
-      const answer = document.getElementById('answer2').value.trim().toLowerCase();
-      const resultDiv = document.getElementById('result2');
-      if (answer.includes('maison')) {
-        resultDiv.textContent = 'Correct!';
-        resultDiv.className = 'task-result success';
-        resultDiv.style.display = 'block';
-        correctAnswers.push(2);
-        updateProgress();
-        setTimeout(() => loadTask(3), 1500);
-      } else {
-        resultDiv.textContent = 'Incorrect. Double-check Jay\'s blog.';
-        resultDiv.className = 'task-result error';
-        resultDiv.style.display = 'block';
-      }
-    });
-  
-    // Task 3
-    document.getElementById('submit3').addEventListener('click', () => {
-      const answer = document.getElementById('answer3').value.trim().toLowerCase();
-      const resultDiv = document.getElementById('result3');
-      if (answer === '@wander.explores.18') {
-        resultDiv.textContent = 'Correct! You found the right alt.';
-        resultDiv.className = 'task-result success';
-        resultDiv.style.display = 'block';
-        correctAnswers.push(3);
-        updateProgress();
-        setTimeout(() => loadTask(4), 1500);
-      } else {
-        resultDiv.textContent = 'Not correct. Look again at the posts.';
-        resultDiv.className = 'task-result error';
-        resultDiv.style.display = 'block';
-      }
-    });
-  
-    // Task 4
-    document.getElementById('submit4').addEventListener('click', () => {
-      const answer = document.getElementById('answer4').value.trim().toLowerCase();
-      const resultDiv = document.getElementById('result4');
-      if (answer === 'jaipur') {
-        resultDiv.textContent = 'Correct! Case solved!';
-        resultDiv.className = 'task-result success';
-        resultDiv.style.display = 'block';
-        correctAnswers.push(4);
-        updateProgress();
+    function correct(resultId, nextTask) {
+      const resultDiv = document.getElementById(resultId);
+      resultDiv.textContent = 'Correct!';
+      resultDiv.className = 'task-result success';
+      resultDiv.style.display = 'block';
+      correctAnswers.push(currentTask);
+      updateProgress();
+      if (nextTask === 'done') {
         setTimeout(() => {
           document.getElementById('task-area').style.display = 'none';
           document.getElementById('completion').style.display = 'block';
-          // Removed window.scrollTo to prevent scrolling to the bottom
         }, 1500);
       } else {
-        resultDiv.textContent = 'Wrong. Remember the Pink City?';
-        resultDiv.className = 'task-result error';
-        resultDiv.style.display = 'block';
+        setTimeout(() => loadTask(nextTask), 1500);
+      }
+      currentTask++;
+    }
+  
+    function wrong(resultId, message) {
+      const resultDiv = document.getElementById(resultId);
+      resultDiv.textContent = 'Wrong. ' + message;
+      resultDiv.className = 'task-result error';
+      resultDiv.style.display = 'block';
+    }
+  
+    document.getElementById('submit1').addEventListener('click', () => {
+      const answer = document.getElementById('answer1').value.trim().toLowerCase();
+      if (answer.includes('terminal 4') || answer.includes('t4')) {
+        correct('result1', 2);
+      } else {
+        wrong('result1', 'Think about the terminal she mentioned.');
       }
     });
   
-    // Start with first task
+    document.getElementById('submit2').addEventListener('click', () => {
+      const answer = document.getElementById('answer2').value.trim().toLowerCase();
+      if (answer.includes('jay') && answer.includes('maison')) {
+        correct('result2', 3);
+      } else {
+        wrong('result2', 'Think about who met and where.');
+      }
+    });
+  
+    document.getElementById('submit3').addEventListener('click', () => {
+      const answer = document.getElementById('answer3').value.trim().toLowerCase();
+      if (answer === '@wander.explores.18') {
+        correct('result3', 4);
+      } else {
+        wrong('result3', 'Look at the new posts carefully.');
+      }
+    });
+  
+    document.getElementById('submit4').addEventListener('click', () => {
+      const answer = document.getElementById('answer4').value.trim().toLowerCase();
+      if (answer.includes('jaipur')) {
+        correct('result4', 5);
+      } else {
+        wrong('result4', 'Think about the Pink City clue.');
+      }
+    });
+  
+    document.getElementById('submit5').addEventListener('click', () => {
+      const answer = document.getElementById('answer5').value.trim().toLowerCase();
+      if (answer.includes('jay')) {
+        correct('result5', 'done');
+      } else {
+        wrong('result5', 'Only one friend traveled.');
+      }
+    });
+  
     loadTask(1);
+  
+    // Profile popup logic
+    const profilePopup = document.getElementById('profilePopup');
+    document.querySelectorAll('.profile-icon').forEach(icon => {
+      icon.addEventListener('mouseenter', (e) => {
+        const rect = icon.getBoundingClientRect();
+        const displayName = icon.dataset.displayname;
+        const username = icon.dataset.username;
+        const bio = icon.dataset.bio;
+  
+        profilePopup.innerHTML = `
+          <img src="${icon.src}" alt="Profile">
+          <div><strong>${displayName}</strong></div>
+          <div style="color:#657786;">${username}</div>
+          <p style="margin-top:5px;font-size:14px;color:#555;">${bio}</p>
+        `;
+        profilePopup.style.top = `${rect.bottom + window.scrollY + 8}px`;
+        profilePopup.style.left = `${rect.left + window.scrollX}px`;
+        profilePopup.style.display = 'block';
+      });
+  
+      icon.addEventListener('mouseleave', () => {
+        setTimeout(() => {
+          profilePopup.style.display = 'none';
+        }, 200);
+      });
+    });
+  
+    profilePopup.addEventListener('mouseenter', () => {
+      profilePopup.style.display = 'block';
+    });
+    profilePopup.addEventListener('mouseleave', () => {
+      profilePopup.style.display = 'none';
+    });
+  
   });
+  
